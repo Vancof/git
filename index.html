@@ -1256,23 +1256,32 @@ font-size: 1.5vw;
 .touch input {
     width: 100%;
 }
-.touch i {
+.touch i , #touch2i {
     position: absolute;
     top: 50%;
     right: 0;
     translate: -2vw -50%;
 font-size: 1.5vw;
 }
+.touch i:hover{
+translate: 10% 0;
+}
+
 .touch input::placeholder , .sign input::placeholder {
     translate: 10% 0;
     font-size: 1vw;
 
+}
+input[type="search"] {
+    text-indent: 1vw;
+    font-size: 1vw;
 }
 .sign input {
     height: 3vw;
     width: 100%;
     border: 0.1vw solid black;
     border-radius: 0;
+    margin: 0.6vw 0;
 }
 .sign input::grammar-error {
     color: red;
@@ -1288,7 +1297,7 @@ margin-bottom: 0.5vw;
     justify-content: space-between;
 align-items: center;
 }
-.sign-option a , #fc {
+.sign-option button , #fc {
     height: 3vw;
     width: 48%;
     background-color: white;
@@ -1300,6 +1309,14 @@ align-items: center;
     font-family: "Archivo Black", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin-bottom: 0.6vw;
+}
+button {
+    outline: none;
+    border: none;
+}
+button:focus {
+    outline: none;
 }
 #fc{
     width: -webkit-fill-available;
@@ -1362,6 +1379,30 @@ text-decoration: underline;
 }
 #os-gif {
 }
+#error {
+    position: absolute;
+color: red !important;
+z-index: +2;
+height: fit-content;
+width: fit-content;
+font-size: 0.7vw;
+padding: 0 0 !important;
+translate: 0 -0.3vw;
+letter-spacing: 1px;
+visibility: hidden;
+}
+#error2 {
+    position: absolute;
+color: red !important;
+z-index: +2;
+height: fit-content;
+width: fit-content;
+font-size: 0.7vw;
+padding: 0 0 !important;
+translate: 0 -0.3vw;
+letter-spacing: 1px;
+visibility: hidden;
+}
 </style>
 </head>
 <body id="body" style="margin-top: 0 !important;">
@@ -1374,7 +1415,7 @@ text-decoration: underline;
 
 <section class="nlinks">
     <a href="" class="home"><strong>HOME</strong></a>
-    <a href="" class="home"><strong>WARRENTY</strong></a>
+    <a href="" class="home"><strong>WARRANTY</strong></a>
     <a href="" class="home"><strong>SERVICE CENTER</strong></a>
     <a href="" class="home"><strong>CMF</strong></a>
     <section class="dhome">
@@ -1931,15 +1972,18 @@ text-decoration: underline;
     <h1>STAY IN TOUCH</h1>
     <section class="touch">
         <i class="fa-solid fa-caret-right"></i>
+        <i class="fa-solid fa-caret-right" id="touch2i"></i>
 
         <input type="search" name="" id="" placeholder="Email"> 
     </section>
 <section class="sign">
-<input type="search" name="" id="" placeholder="Email">
-<input type="search" name="" id="" placeholder="Password">
+<input type="search" name="" placeholder="Email" id="email">
+<h1 id="error">Please enter a valid email</h1>
+<h1 id="error2">Please enter an email</h1>
+<input type="search" name=""  placeholder="Password" id="password">
 <section class="sign-option">
-    <a href="">SIGN IN</a>
-    <a href="">LOG IN</a>
+    <button onclick="check()" href="">SIGN IN</a>
+    <button href="">LOG IN</a>
 </section>
 <a href="" id="fc">FIND ACCOUNT</a>
 </section>
@@ -1982,6 +2026,37 @@ text-decoration: underline;
 
 <script src="Nothing-pc.js"></script>
 <script>
+function check() {
+    var em = document.getElementById('email');
+    var em2 = em.value.trim()
+    var emi = '.com';
+    var emi2 = '@';
+    var google = '@gmail.com'
+    var yahoo = '@yahoo.com'
+var em3 = em.value.length;
+
+if (em2.includes(google) || em2.includes(yahoo)) {
+    console.log('alirght')
+    document.getElementById('error').style.visibility= 'hidden';
+    document.getElementById('error2').style.visibility= 'hidden';
+}
+else {
+    document.getElementById('error').style.visibility= 'visible';
+    document.getElementById('error2').style.visibility= 'hidden';
+
+}
+if (em3 == 0) {
+    document.getElementById('error').style.visibility= 'hidden';
+    document.getElementById('error2').style.visibility= 'visible';
+
+}
+}
+
+
+
+
+
+
     var a = document.getElementById('sc1');
 var b = document.getElementById('sc2');
 var c = document.getElementById('sc3');
