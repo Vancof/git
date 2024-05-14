@@ -266,7 +266,6 @@ overflow-x: scroll;
     width: 100vw;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
 padding: 0;
 --bar: 0.2vw;
 overflow: hidden;
@@ -275,7 +274,6 @@ overflow: hidden;
     display: none;
 }
 #sc1{
-    margin-left: 4vw;
 }
 .slider-con {
     position: relative;
@@ -290,15 +288,17 @@ overflow: hidden;
 transition: 1s;
 background-color: #000;
 --duration: 30s linear;
-margin: 0 0vw;
-margin-left: 0;
+margin: 0 2vw;
 z-index: +9;
 }
 .slider .slider-con:nth-child(2) {
-    margin-left: 1vw;
 }
 .slider .slider-con:nth-child(3) {
-    margin-left: 1vw;
+    margin-left: 0;
+}
+
+.slider .slider-con:nth-child(4) {
+    margin-left: 0;
 }
 .slider-con iframe {
     position: absolute;
